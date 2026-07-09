@@ -152,8 +152,8 @@ git push -f origin "${TAG_NAME}"
 # 6. 上传安装包至 GitHub Release
 echo -e "\n${CYAN}[5/6] 创建 GitHub Release 并上传安装包...${NC}"
 
-# 优先探测是否安装 gh cli
-if command -v gh &> /dev/null; then
+# 优先探测是否安装且已登录 gh cli
+if command -v gh &> /dev/null && gh auth status &> /dev/null; then
   echo -e "  👉 使用 GitHub CLI (gh) 创建 Release..."
   RELEASE_NOTES="### 🚀 Termora ${TAG_NAME} Release\n\n#### 📥 下载与安装\n- **macOS 安装包**: 下载下方 \`${DMG_NAME}\`\n- 打开后将 **Termora.app** 拖入 \`/Applications\` 文件夹即可。\n- 已安装旧版本的用户:启动 Termora 会自动检测到本次更新,点「立即升级」即可原地升级并重启。"
   gh release create "${TAG_NAME}" "${DMG_OUTPUT}" --title "Termora ${TAG_NAME} Release" --notes "${RELEASE_NOTES}" --target main
@@ -163,7 +163,7 @@ else
   # 自动尝试读取 GitHub Token（检查环境变量或提示输入）
   GH_TOKEN="${GITHUB_TOKEN:-}"
   if [ -z "$GH_TOKEN" ]; then
-    echo -e "${YELLOW}未检测到 gh CLI，也未设置 GITHUB_TOKEN 环境变量。${NC}"
+    echo -e "${YELLOW}未检测到已登录的 gh CLI，准备使用 GitHub Token 在线发布。${NC}"
     read -sp "请临时粘贴输入你的 GitHub Personal Access Token (输入时无回显，按回车确认，留空则跳过在线发布): " GH_TOKEN
     echo ""
   fi
