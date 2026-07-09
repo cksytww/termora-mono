@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:lucide_icons_flutter/lucide_icons.dart';
@@ -220,13 +221,34 @@ class SettingsDialog extends ConsumerWidget {
                     const SizedBox(height: 8),
                     Row(
                       children: [
-                        Icon(LucideIcons.externalLink, size: 13, color: AppTheme.subtleTextColor),
-                        const SizedBox(width: 5),
-                        Text(
-                          'https://github.com/pynets/termora',
-                          style: TextStyle(
-                            fontSize: 11,
-                            color: AppTheme.subtleTextColor,
+                        InkWell(
+                          borderRadius: BorderRadius.circular(4),
+                          onTap: () {
+                            if (Platform.isMacOS) {
+                              Process.run('open', ['https://github.com/pynets/termora']);
+                            } else if (Platform.isLinux) {
+                              Process.run('xdg-open', ['https://github.com/pynets/termora']);
+                            } else if (Platform.isWindows) {
+                              Process.run('cmd', ['/c', 'start', 'https://github.com/pynets/termora']);
+                            }
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 2),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Icon(LucideIcons.externalLink, size: 13, color: AppTheme.brandColor),
+                                const SizedBox(width: 5),
+                                Text(
+                                  'https://github.com/pynets/termora',
+                                  style: TextStyle(
+                                    fontSize: 11,
+                                    color: AppTheme.brandColor,
+                                    decoration: TextDecoration.underline,
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                         const Spacer(),

@@ -164,6 +164,7 @@ if command -v gh &> /dev/null && gh auth status &> /dev/null; then
   echo -e "  👉 使用 GitHub CLI (gh) 创建 Release..."
   RELEASE_NOTES="### 🚀 Termora ${TAG_NAME} Release\n\n#### 📥 下载与安装\n- **macOS 安装包**: 下载下方 \`${DMG_NAME}\`\n- 打开后将 **Termora.app** 拖入 \`/Applications\` 文件夹即可。\n- 已安装旧版本的用户:启动 Termora 会自动检测到本次更新,点「立即升级」即可原地升级并重启。"
   gh release create "${TAG_NAME}" "${DMG_OUTPUT}" --title "Termora ${TAG_NAME} Release" --notes "${RELEASE_NOTES}" --target main
+  gh repo edit --homepage "https://github.com/pynets/termora/releases/latest" 2>/dev/null || true
   echo -e "${GREEN}  ✔ 通过 gh cli 发布成功！${NC}"
 else
   # 使用 REST API 和 GITHUB_TOKEN
@@ -198,12 +199,12 @@ else
         "https://uploads.github.com/repos/${REPO_OWNER}/${REPO_NAME}/releases/${RELEASE_ID}/assets?name=${DMG_NAME}" > /dev/null
       echo -e "${GREEN}  ✔ DMG 安装包上传完成！${NC}"
 
-      # 同步更新主页 homepage
+      # 同步更新主页 homepage 为 latest
       curl -s -X PATCH -H "Accept: application/vnd.github+json" \
         -H "Authorization: Bearer ${GH_TOKEN}" \
         -H "X-GitHub-Api-Version: 2022-11-28" \
         "https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}" \
-        -d "{\"homepage\":\"https://github.com/${REPO_OWNER}/${REPO_NAME}/releases/tag/${TAG_NAME}\"}" > /dev/null
+        -d "{\"homepage\":\"https://github.com/${REPO_OWNER}/${REPO_NAME}/releases/latest\"}" > /dev/null
     else
       echo -e "${RED}  ✘ 创建 Release 失败，返回信息:${NC}\n$CREATE_RESP"
     fi
