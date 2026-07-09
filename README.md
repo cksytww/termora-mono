@@ -24,9 +24,11 @@ Instead of jumping between fragmented SSH clients, database tools, note-taking a
 
 ## 📸 Preview
 
-<div align="center">
-  <img src="./docs/screenshots/termora_preview.png" alt="Termora Preview" width="85%"/>
-</div>
+| 🖥️ Terminal | 🌐 Remote & SFTP |
+| :---: | :---: |
+| <img src="./docs/screenshots/terminal.png" width="100%" alt="Terminal"/> | <img src="./docs/screenshots/remote.png" width="100%" alt="Remote"/> |
+| **🗄️ Database Explorer** | **📝 Markdown & LaTeX Notes** |
+| <img src="./docs/screenshots/database.png" width="100%" alt="Database"/> | <img src="./docs/screenshots/notes.png" width="100%" alt="Notes"/> |
 
 ---
 

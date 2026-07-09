@@ -26,9 +26,11 @@
 
 ## 📸 应用预览 (Preview)
 
-<div align="center">
-  <img src="./docs/screenshots/termora_preview.png" alt="Termora 界面预览" width="85%"/>
-</div>
+| 🖥️ 终端控制台 (Terminal) | 🌐 远程主机与 SFTP (Remote) |
+| :---: | :---: |
+| <img src="./docs/screenshots/terminal.png" width="100%" alt="终端"/> | <img src="./docs/screenshots/remote.png" width="100%" alt="远程"/> |
+| **🗄️ 数据库客户端 (Database)** | **📝 全能笔记与 LaTeX (Notes)** |
+| <img src="./docs/screenshots/database.png" width="100%" alt="数据库"/> | <img src="./docs/screenshots/notes.png" width="100%" alt="笔记"/> |
 
 ---
 
