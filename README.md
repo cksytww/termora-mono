@@ -22,7 +22,8 @@ Instead of jumping between fragmented SSH clients, database tools, note-taking a
 
 ## 📥 Download Release (v0.0.1)
 
-- **macOS Installer (.dmg)**: [Download Termora-v0.0.1-macOS.dmg](./release/Termora-v0.0.1-macOS.dmg)
+- **macOS Installer (.dmg)**: [Download Termora-v0.0.1-macOS.dmg](https://github.com/pynets/termora/releases/download/v0.0.1/Termora-v0.0.1-macOS.dmg)
+- **All Releases**: [GitHub Releases Page](https://github.com/pynets/termora/releases)
 
 ---
 
