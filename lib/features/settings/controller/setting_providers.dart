@@ -17,7 +17,7 @@ class AppLocaleController extends Notifier<AppLocale> {
   @override
   AppLocale build() {
     _load();
-    return AppLocale.system;
+    return AppLocale.en;
   }
 
   Future<void> _load() async {
@@ -26,7 +26,7 @@ class AppLocaleController extends Notifier<AppLocale> {
     if (value != null) {
       state = AppLocale.values.firstWhere(
         (mode) => mode.name == value,
-        orElse: () => AppLocale.system,
+        orElse: () => AppLocale.en,
       );
     }
   }
