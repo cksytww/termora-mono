@@ -8,19 +8,29 @@
 
 [English](./README.md) | **简体中文**
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
-[![Flutter](https://img.shields.io/badge/Flutter-%3E%3D3.16-02569B?logo=flutter)](https://flutter.dev)
-[![Platform](https://img.shields.io/badge/Platform-macOS%20%7C%20Windows%20%7C%20Linux-lightgrey.svg)]()
+[![GitHub Release](https://img.shields.io/github/v/release/pynets/termora?style=flat-square&color=02569B)](https://github.com/pynets/termora/releases)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](./LICENSE)
+[![Flutter](https://img.shields.io/badge/Flutter-%3E%3D3.16-02569B?style=flat-square&logo=flutter)](https://flutter.dev)
+[![Platform](https://img.shields.io/badge/Platform-macOS%20%7C%20Windows%20%7C%20Linux-lightgrey.svg?style=flat-square)]()
 
 </div>
 
 ---
 
-## ✨ 简介 (Introduction)
+## 💡 关于 Termora (About)
 
-**Termora** 是一款基于 Flutter 深度构建的桌面端全能开发者工具箱。旨在为工程师和高级用户提供一体化、跨平台、极致流畅的生产力客户端。
+**Termora** 旨在从根本上解决开发者日常桌面工具链碎片化的痛点。不再需要打开 4~5 个庞大吃内存的 Electron 应用来分别操作 SSH 终端、SFTP 文件上传、数据库查询、Markdown/LaTeX 公式排版以及悬浮截图参考贴图——**Termora 采用 Flutter 构建，将这五大核心开发者生产力工具融合进同一个原生流畅的桌面客户端**。
 
-不再需要在各类分散的终端工具、数据库客户端、笔记软件和截屏小工具之间频繁切换，Termora 把日常开发最关键的工具流汇集到一个优雅得体的原生窗口中。
+| 核心维度 | 传统分散工具方案 | **Termora 一体化工具箱** |
+| :--- | :--- | :--- |
+| **性能与内存占用** | 需常驻 4-5 个高内存占用应用 | **单个轻量极速 Flutter 原生编译程序** |
+| **SSH / SFTP 管理** | 终端命令行与图形化传输切来切去 | **多屏多会话并发管理 + 拖拽式 SFTP 文件浏览器** |
+| **数据库开发** | 必须安装独立客户端 | **内置 SQL 语法高亮编写器及结构化数据浏览** |
+| **技术笔记排版** | 依赖外部 Markdown 编辑器 | **实时双栏渲染 + 物理数学 LaTeX (`$$`) 公式支持** |
+| **界面截屏与对比贴图** | 需额外常驻截图工具 | **全局快捷键 (`⌥+Shift+X`) + 桌面置顶贴图对照** |
+| **数据隐私与持久化** | 许多商业工具强制依赖云端账号 | **纯本地优先存储 (Local-First)，数据绝对私密掌控** |
+
+---
 
 ## 📥 下载安装包 (Release v0.0.1)
 

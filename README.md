@@ -6,19 +6,29 @@
 
 **English** | [简体中文](./README_ZH.md)
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
-[![Flutter](https://img.shields.io/badge/Flutter-%3E%3D3.16-02569B?logo=flutter)](https://flutter.dev)
-[![Platform](https://img.shields.io/badge/Platform-macOS%20%7C%20Windows%20%7C%20Linux-lightgrey.svg)]()
+[![GitHub Release](https://img.shields.io/github/v/release/pynets/termora?style=flat-square&color=02569B)](https://github.com/pynets/termora/releases)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](./LICENSE)
+[![Flutter](https://img.shields.io/badge/Flutter-%3E%3D3.16-02569B?style=flat-square&logo=flutter)](https://flutter.dev)
+[![Platform](https://img.shields.io/badge/Platform-macOS%20%7C%20Windows%20%7C%20Linux-lightgrey.svg?style=flat-square)]()
 
 </div>
 
 ---
 
-## ✨ Overview
+## 💡 About Termora
 
-**Termora** is a sleek, modern desktop toolbox for engineers and developers built with Flutter. Designed for cross-platform desktop operating systems (macOS, Windows, and Linux), it consolidates everyday developer tools into one elegant workspace.
+**Termora** is built from the ground up to solve developer tool fragmentation. Instead of juggling separate heavy Electron apps for SSH terminals, SFTP clients, SQL query explorers, Markdown/LaTeX notes, and floating screenshot utilities, **Termora combines all five into a single high-performance desktop application**.
 
-Instead of jumping between fragmented SSH clients, database tools, note-taking apps, and screenshot utilities, Termora brings everything together seamlessly.
+| Feature | Fragmented Tools | **Termora** |
+| :--- | :--- | :--- |
+| **Performance & Memory** | 4-5 high-RAM Electron apps | **Single lightweight native Flutter executable** |
+| **SSH & SFTP** | Split between CLI & GUI tools | **Integrated multi-pane terminal & drag-drop SFTP** |
+| **Database Explorer** | Separate SQL clients | **Built-in multi-engine SQL viewer & runner** |
+| **Technical Notes** | External editors | **Markdown + full LaTeX (`$$`) formula rendering** |
+| **Screenshot Pinning** | Separate utility | **Global shortcut (`⌥+Shift+X`) + Always-on-top desktop pin** |
+| **Privacy & Storage** | Cloud sync required | **100% Local-First (`sqlite3` / `shared_preferences`)** |
+
+---
 
 ## 📥 Download Release (v0.0.1)
 

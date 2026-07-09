@@ -50,6 +50,13 @@ class AppL10n {
   String get showWindow => isZh ? '显示窗口' : 'Show Window';
   String get screenshotShortcut => isZh ? '截屏 (⌥+Shift+X)' : 'Screenshot (⌥+Shift+X)';
   String get alwaysOnTop => isZh ? '窗口置顶' : 'Always on Top';
-  String get launchAtStartup => isZh ? '开机自启动' : 'Launch at Startup';
   String get quit => isZh ? '退出' : 'Quit';
+
+  // About Section
+  String get aboutTermora => isZh ? '关于 Termora' : 'About Termora';
+  String get versionLabel => isZh ? '当前版本' : 'Version';
+  String get openSourceRepo => isZh ? 'GitHub 开源主页' : 'GitHub Repository';
+  String get aboutTagline => isZh
+      ? '跨平台全能桌面级开发工具箱 (SSH / 数据库 / 笔记 / 截屏)'
+      : 'Modern Cross-Platform Desktop Developer Toolbox';
 }

@@ -180,6 +180,90 @@ class SettingsDialog extends ConsumerWidget {
                 l10n.brandColorDesc,
                 style: TextStyle(fontSize: 11, color: AppTheme.subtleTextColor),
               ),
+
+              const SizedBox(height: 20),
+              Divider(height: 1, color: AppTheme.borderColor),
+              const SizedBox(height: 16),
+
+              // ── 关于 Termora (About) ──
+              Container(
+                width: double.infinity,
+                padding: const EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  color: isDark
+                      ? Colors.white.withValues(alpha: 0.03)
+                      : Colors.black.withValues(alpha: 0.02),
+                  borderRadius: BorderRadius.circular(10),
+                  border: Border.all(color: AppTheme.borderColor),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        Icon(LucideIcons.info, size: 16, color: AppTheme.brandColor),
+                        const SizedBox(width: 8),
+                        Text(
+                          l10n.aboutTermora,
+                          style: TextStyle(
+                            fontSize: 13,
+                            fontWeight: FontWeight.w700,
+                            color: AppTheme.headingColor,
+                          ),
+                        ),
+                        const Spacer(),
+                        Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+                          decoration: BoxDecoration(
+                            color: AppTheme.brandColor.withValues(alpha: 0.12),
+                            borderRadius: BorderRadius.circular(6),
+                          ),
+                          child: Text(
+                            'v0.0.1+1',
+                            style: TextStyle(
+                              fontSize: 11,
+                              fontWeight: FontWeight.w600,
+                              color: AppTheme.brandColor,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 6),
+                    Text(
+                      l10n.aboutTagline,
+                      style: TextStyle(
+                        fontSize: 11.5,
+                        color: AppTheme.bodyColor,
+                        height: 1.35,
+                      ),
+                    ),
+                    const SizedBox(height: 8),
+                    Row(
+                      children: [
+                        Icon(LucideIcons.externalLink, size: 13, color: AppTheme.subtleTextColor),
+                        const SizedBox(width: 5),
+                        Text(
+                          'https://github.com/pynets/termora',
+                          style: TextStyle(
+                            fontSize: 11,
+                            color: AppTheme.subtleTextColor,
+                          ),
+                        ),
+                        const Spacer(),
+                        Text(
+                          'MIT License',
+                          style: TextStyle(
+                            fontSize: 11,
+                            fontWeight: FontWeight.w500,
+                            color: AppTheme.subtleTextColor,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
             ],
           ),
         ),
