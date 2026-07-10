@@ -2170,40 +2170,43 @@ class _TerminalFilesTabState extends State<_TerminalFilesTab> {
       widget.remoteMakeDir != null;
 
   Widget _buildCreateMenuButton() {
-    return PopupMenuButton<String>(
-      tooltip: '新建 / 上传',
-      icon: Icon(
-        LucideIcons.plus300,
-        size: 14,
-        color: AppTheme.subtleTextColor,
+    return SizedBox(
+      width: 28,
+      height: 28,
+      child: PopupMenuButton<String>(
+        tooltip: '新建 / 上传',
+        icon: Icon(
+          LucideIcons.plus300,
+          size: 14,
+          color: AppTheme.subtleTextColor,
+        ),
+        iconSize: 14,
+        splashRadius: 14,
+        padding: EdgeInsets.zero,
+        color: AppTheme.surfaceColor,
+        itemBuilder: (context) => [
+          if (_canTransfer)
+            const PopupMenuItem(value: 'uploadFiles', height: 36, child: Text('上传文件…')),
+          if (widget.remoteUploadDir != null)
+            const PopupMenuItem(value: 'uploadDir', height: 36, child: Text('上传目录…')),
+          if (_canTransfer)
+            const PopupMenuItem(value: 'newFile', height: 36, child: Text('新建文件')),
+          if (widget.remoteMakeDir != null)
+            const PopupMenuItem(value: 'newDir', height: 36, child: Text('新建文件夹')),
+        ],
+        onSelected: (v) {
+          switch (v) {
+            case 'uploadFiles':
+              unawaited(_pickAndUpload(_rootDir));
+            case 'uploadDir':
+              unawaited(_pickAndUploadDir(_rootDir));
+            case 'newFile':
+              unawaited(_newFileIn(_rootDir));
+            case 'newDir':
+              unawaited(_makeDirIn(_rootDir));
+          }
+        },
       ),
-      iconSize: 14,
-      splashRadius: 14,
-      padding: EdgeInsets.zero,
-      constraints: const BoxConstraints(minWidth: 44, maxWidth: 44),
-      color: AppTheme.surfaceColor,
-      itemBuilder: (context) => [
-        if (_canTransfer)
-          const PopupMenuItem(value: 'uploadFiles', height: 36, child: Text('上传文件…')),
-        if (widget.remoteUploadDir != null)
-          const PopupMenuItem(value: 'uploadDir', height: 36, child: Text('上传目录…')),
-        if (_canTransfer)
-          const PopupMenuItem(value: 'newFile', height: 36, child: Text('新建文件')),
-        if (widget.remoteMakeDir != null)
-          const PopupMenuItem(value: 'newDir', height: 36, child: Text('新建文件夹')),
-      ],
-      onSelected: (v) {
-        switch (v) {
-          case 'uploadFiles':
-            unawaited(_pickAndUpload(_rootDir));
-          case 'uploadDir':
-            unawaited(_pickAndUploadDir(_rootDir));
-          case 'newFile':
-            unawaited(_newFileIn(_rootDir));
-          case 'newDir':
-            unawaited(_makeDirIn(_rootDir));
-        }
-      },
     );
   }
 
