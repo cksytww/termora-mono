@@ -151,12 +151,12 @@ if security find-identity -v -p codesigning 2>/dev/null | grep -q "$CERT_NAME"; 
     # 签名所有 .framework
     for fw in "$FRAMEWORKS_DIR"/*.framework; do
       [ -d "$fw" ] || continue
-      codesign --force --options runtime --sign "$CERT_NAME" "$fw"
+      codesign --force --sign "$CERT_NAME" "$fw"
     done
     # 签名所有 .dylib
     for dl in "$FRAMEWORKS_DIR"/*.dylib; do
       [ -f "$dl" ] || continue
-      codesign --force --options runtime --sign "$CERT_NAME" "$dl"
+      codesign --force --sign "$CERT_NAME" "$dl"
     done
   fi
 
