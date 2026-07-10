@@ -144,10 +144,28 @@ ENTITLEMENTS="macos/Runner/Release.entitlements"
 
 if security find-identity -v -p codesigning 2>/dev/null | grep -q "$CERT_NAME"; then
   echo -e "  👉 使用固定证书 \"$CERT_NAME\" 重签 .app ..."
-  codesign --deep --force --options runtime \
+
+  # 必须从内到外逐个签名（--deep 不可靠，会导致 Team ID 不一致崩溃）
+  FRAMEWORKS_DIR="$APP_BUNDLE/Contents/Frameworks"
+  if [ -d "$FRAMEWORKS_DIR" ]; then
+    # 签名所有 .framework
+    for fw in "$FRAMEWORKS_DIR"/*.framework; do
+      [ -d "$fw" ] || continue
+      codesign --force --options runtime --sign "$CERT_NAME" "$fw"
+    done
+    # 签名所有 .dylib
+    for dl in "$FRAMEWORKS_DIR"/*.dylib; do
+      [ -f "$dl" ] || continue
+      codesign --force --options runtime --sign "$CERT_NAME" "$dl"
+    done
+  fi
+
+  # 最后签名主 .app（附带 entitlements）
+  codesign --force --options runtime \
     --sign "$CERT_NAME" \
     --entitlements "$ENTITLEMENTS" \
     "$APP_BUNDLE"
+
   echo -e "${GREEN}  ✔ 重签完成，签名身份固定（升级后 TCC 权限不会丢失）${NC}"
 else
   echo -e "${YELLOW}  ⚠ 未找到证书 \"$CERT_NAME\"，跳过重签（使用默认 ad-hoc 签名）${NC}"
